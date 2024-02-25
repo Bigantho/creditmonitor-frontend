@@ -489,7 +489,14 @@ iframe {
   }
 }
 
+
+/* NEW DESING */
+
 .main-container{
   margin: 5%;
+}
+
+#userLoggedEmail{
+  text-align: center;
 }
 

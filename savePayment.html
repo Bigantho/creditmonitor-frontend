@@ -41,248 +41,247 @@
                 </div>
             </div> -->
             <div class="d-flex row">
-                <p id="userLoggedEmail"></p>
-                <button onclick="cerrarSesion">Cerrar Sesion</button>
+                <p id="userLoggedEmail"></p><br>
+                <button onclick="cerrarSesion()">Cerrar Sesion</button>
             </div>
         </div>
     </nav>
     <div class="main-container">
 
-        <h1>Informacion de pago</h1>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input type="text" id="cardNumber" class="input100">
-                    <span class="focus-input100" data-placeholder="Numero de tarjeta"></span>
-                </div>
+        <!-- Info de pago -->
+        <section>
+            <h1>Informacion de pago</h1>
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input type="text" id="cardNumber" class="input100">
+                        <span class="focus-input100" data-placeholder="Numero de tarjeta"></span>
+                    </div>
 
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="expDate">
-                    <span class="focus-input100" data-placeholder="Fecha de expiracion"></span>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="expDate">
+                        <span class="focus-input100" data-placeholder="Fecha de expiracion"></span>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="cvc">
+                        <span class="focus-input100" data-placeholder="CVC/CVV"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input type="text" id="amount" class="input100">
+                        <span class="focus-input100" data-placeholder="Cantidad"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="cvc">
-                    <span class="focus-input100" data-placeholder="CVC/CVV"></span>
-                </div>
+        <!-- Info de orden -->
+        <section>
+            <h1>Informacion de Orden</h1>
+            <br>
+            <div class="wrap-input100 validate-input">
+                <input type="text" id="invoice" class="input100">
+                <span class="focus-input100" data-placeholder="Factura #"></span>
             </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input type="text" id="amount" class="input100">
-                    <span class="focus-input100" data-placeholder="Cantidad"></span>
-                </div>
-            </div>
-        </div>
 
+            <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" id="descOrder">
+                <span class="focus-input100" data-placeholder="Descripcion"></span>
+            </div>
+        </section>
 
-
-
-
-        <h1>Informacion de Orden</h1>
-        <br>
-
-        <div class="wrap-input100 validate-input">
-            <input type="text" id="invoice" class="input100">
-            <span class="focus-input100" data-placeholder="Factura #"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input">
-            <input class="input100" type="text" id="descOrder">
-            <span class="focus-input100" data-placeholder="Descripcion"></span>
-        </div>
-
-        <h1>Informacion de cobro:</h1>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="customerID">
-                    <span class="focus-input100" data-placeholder="ID Cliente"></span>
+        <!-- Info de cobros -->
+        <section>
+            <h1>Informacion de cobro:</h1>
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="customerID">
+                        <span class="focus-input100" data-placeholder="ID Cliente"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="firstName">
+                        <span class="focus-input100" data-placeholder="Nombre"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="firstName">
-                    <span class="focus-input100" data-placeholder="Nombre"></span>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="lastName">
+                        <span class="focus-input100" data-placeholder="Apellido"></span>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="lastName">
-                    <span class="focus-input100" data-placeholder="Apellido"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="company">
-                    <span class="focus-input100" data-placeholder="Empresa"></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="address">
-                    <span class="focus-input100" data-placeholder="Dirección"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="city">
-                    <span class="focus-input100" data-placeholder="Ciudad"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="state">
-                    <span class="focus-input100" data-placeholder="Estado/Provincia"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="zipCode">
-                    <span class="focus-input100" data-placeholder="ZipCode"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="country">
-                    <span class="focus-input100" data-placeholder="Pais"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="phone">
-                    <span class="focus-input100" data-placeholder="Telefono"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="email">
-                    <span class="focus-input100" data-placeholder="Correo"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="fax">
-                    <span class="focus-input100" data-placeholder="Fax"></span>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="company">
+                        <span class="focus-input100" data-placeholder="Empresa"></span>
+                    </div>
                 </div>
             </div>
 
-        </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="address">
+                        <span class="focus-input100" data-placeholder="Dirección"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="city">
+                        <span class="focus-input100" data-placeholder="Ciudad"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="state">
+                        <span class="focus-input100" data-placeholder="Estado/Provincia"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="zipCode">
+                        <span class="focus-input100" data-placeholder="ZipCode"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="country">
+                        <span class="focus-input100" data-placeholder="Pais"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="phone">
+                        <span class="focus-input100" data-placeholder="Telefono"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="email">
+                        <span class="focus-input100" data-placeholder="Correo"></span>
+                    </div>
+                </div>
+                <!-- <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="fax">
+                        <span class="focus-input100" data-placeholder="Fax"></span>
+                    </div>
+                </div> -->
 
+            </div>
+        </section>
 
-
-
-
-
-
-        <h1>Informacion de envio:</h1>
-        <br>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipCustomerID">
-                    <span class="focus-input100" data-placeholder="ID Cliente"></span>
+        <!-- Info de envio -->
+        <section>
+            <h1>Informacion de envio:</h1>
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="copyDataCbox"
+                            onchange="checkboxChanged()">
+                        <label class="form-check-label" for="copyDataCbox">
+                            Usar la misma informacion de cobros
+                        </label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipFirstName">
+                        <span class="focus-input100" data-placeholder="Nombre"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipFirstName">
-                    <span class="focus-input100" data-placeholder="Nombre"></span>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipLastName">
+                        <span class="focus-input100" data-placeholder="Apellido"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipCompany">
+                        <span class="focus-input100" data-placeholder="Empresa"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipLastName">
-                    <span class="focus-input100" data-placeholder="Apellido"></span>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipAddress">
+                        <span class="focus-input100" data-placeholder="Dirección"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipCity">
+                        <span class="focus-input100" data-placeholder="Ciudad"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipCompany">
-                    <span class="focus-input100" data-placeholder="Empresa"></span>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipState">
+                        <span class="focus-input100" data-placeholder="Estado/Provincia"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipZipCode">
+                        <span class="focus-input100" data-placeholder="ZipCode"></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipAddress">
-                    <span class="focus-input100" data-placeholder="Dirección"></span>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipCountry">
+                        <span class="focus-input100" data-placeholder="Pais"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipPhone">
+                        <span class="focus-input100" data-placeholder="Telefono"></span>
+                    </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipCity">
-                    <span class="focus-input100" data-placeholder="Ciudad"></span>
+            <div class="row">
+                <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipEmail">
+                        <span class="focus-input100" data-placeholder="Correo"></span>
+                    </div>
                 </div>
+                <!-- <div class="col-6">
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" id="shipFax">
+                        <span class="focus-input100" data-placeholder="Fax"></span>
+                    </div>
+                </div> -->
             </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipState">
-                    <span class="focus-input100" data-placeholder="Estado/Provincia"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipZipCode">
-                    <span class="focus-input100" data-placeholder="ZipCode"></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipCountry">
-                    <span class="focus-input100" data-placeholder="Pais"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipPhone">
-                    <span class="focus-input100" data-placeholder="Telefono"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipEmail">
-                    <span class="focus-input100" data-placeholder="Correo"></span>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" id="shipFax">
-                    <span class="focus-input100" data-placeholder="Fax"></span>
-                </div>
-            </div>
-        </div>
-
+        </section>
         <br>
         <button id="btnProcessPayment" class="btn btn-warning">PROCESAR ORDEN</button>
         <br><br><br>
@@ -312,10 +311,10 @@
             const zipCode = document.getElementById('zipCode').value
             const country = document.getElementById('country').value
             const phone = document.getElementById('phone').value
-            const fax = document.getElementById('fax').value
+            // const fax = document.getElementById('fax').value
             const email = document.getElementById('email').value
 
-            const shipCustomerID = document.getElementById('shipCustomerID').value
+            // const shipCustomerID = document.getElementById('shipCustomerID').value
             const shipFirstName = document.getElementById('shipFirstName').value
             const shipLastName = document.getElementById('shipLastName').value
             const shipCompany = document.getElementById('shipCompany').value
@@ -325,7 +324,7 @@
             const shipZipCode = document.getElementById('shipZipCode').value
             const shipCountry = document.getElementById('shipCountry').value
             const shipPhone = document.getElementById('shipPhone').value
-            const shipFax = document.getElementById('shipFax').value
+            // const shipFax = document.getElementById('shipFax').value
             const shipEmail = document.getElementById('shipEmail').value
 
 
@@ -352,7 +351,7 @@
                     zip_code: zipCode,
                     country: country,
                     phone_number: phone,
-                    fax: "",
+                    // fax: "",
                     email: email
                 },
                 shipping: {
@@ -374,12 +373,11 @@
                 .then(function (response) {
                     // Handle the successful response
                     console.log(response)
-                    alert(`Pago procesado con exito: ${response.message}`)
+                    alert(`Pago procesado con exito: ${response.data.message}`)
                 })
                 .catch(function (error) {
                     // Handle errors
-                    console.log(error.message);
-                    alert(`Oooops, Algo salio mal: ${error.message}`);
+                    alert(`Oooops, Algo salio mal: ${error.response.data.message}`);
                 });
         }
 
@@ -395,6 +393,23 @@
 
             return null; // Cookie not found
         }
+
+        function clearCookies() {
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            }
+        }
+
+        function cerrarSesion() {
+            clearCookies()
+            window.location.href = 'index.html'
+        }
+
         let button = document.getElementById('btnProcessPayment');
         button.addEventListener('click', processPayment);
     </script>
@@ -402,14 +417,56 @@
     <script>
         // Using vanilla JavaScript
         document.addEventListener('DOMContentLoaded', function () {
-            // Get the paragraph element by ID
             let emailUserLogged = document.getElementById('userLoggedEmail');
-
-            // Change the content
             emailUserLogged.innerHTML = getCookieValue('userLoggedEmail');
-            // or
-            // paragraph.textContent = 'New content';
         });
+
+
+        function copyData() {
+            const elementsToCopy = [
+                'firstName', 'lastName', 'company',
+                'address', 'city','state',
+                'zipCode', 'country', 'phone',
+                'email'
+            ]
+            const elementsToPaste = [
+                'shipFirstName', 'shipLastName', 'shipCompany',
+                'shipAddress', 'shipCity','shipState',
+                'shipZipCode', 'shipCountry', 'shipPhone',
+                'shipEmail'
+            ]
+            for (let i = 0; i < elementsToCopy.length; i++) {
+
+                let d = document.getElementById(`${elementsToCopy[i]}`).value;
+                let b = document.getElementById(`${elementsToPaste[i]}`)
+                b.value = d
+
+            }
+        }
+        function deleteData() {
+            const elementsToPaste = [
+                'shipFirstName', 'shipLastName', 'shipCompany',
+                'shipAddress', 'shipCity','shipState',
+                'shipZipCode', 'shipCountry', 'shipPhone',
+                'shipEmail', 'shipFax'
+            ]           
+            for (let i = 0; i < elementsToPaste.length; i++) {
+                let b = document.getElementById(`${elementsToPaste[i]}`)
+                b.value = ""
+            }
+        }
+
+        function checkboxChanged() {
+            let checkbox = document.getElementById("copyDataCbox");
+            // This function will be called whenever the checkbox changes its state
+            if (checkbox.checked) {
+                copyData()
+                $(".main-container input").trigger("blur");
+            } else {
+                deleteData()
+                $(".main-container input").trigger("blur");
+            }
+        }
     </script>
 </body>
 
