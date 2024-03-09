@@ -1,3 +1,6 @@
+document.write('<script type="text/javascript" src="../constants.js"></script>');
+
+
 function getCookieValue(cookieName) {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
@@ -21,7 +24,7 @@ function cerrarSesion() {
 
 function getData(){
     
-     axios.get('http://localhost:3000/api/v1/user/1/payments')
+     axios.get(`${URL_API}/v1/user/1/payments`)
         .then(function (response) {
            setData(response.data)
         })

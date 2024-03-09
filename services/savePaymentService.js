@@ -124,7 +124,7 @@ function processPayment(params) {
     }
 
     // Make a GET request using Axios
-    axios.post('http://localhost:3000/api/v1/payment', data)
+    axios.post(`${URL_API}/v1/payment`, data)
         .then(function (response) {
             // Handle the successful response
             console.log(response)
@@ -184,7 +184,7 @@ function processPaymentWithTrialPeriod(params) {
     }
 
     // Make a GET request using Axios
-    axios.post('http://localhost:3000/api/v1/paymentWithTrial', data)
+    axios.post(`${URL_API}/v1/paymentWithTrial`, data)
         .then(function (response) {
             // Handle the successful response
             console.log(response)
