@@ -32,17 +32,24 @@
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Pricing</a>
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+                    <!-- <a class="nav-link" href="#">Features</a> -->
+                    <a class="nav-link">
+                        <button onclick="openView('payments.html')"> Cobros realizados</button>
+                    </a>
+                    <a class="nav-link">
+                        <button onclick="openView('savePayment.html')"> Realizar cobro</button>
+                    </a>
+                    <!-- <a class="nav-link" href="#">Pricing</a> -->
+                    <!-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
                 </div>
-            </div> -->
+            </div>
+
             <div class="d-flex row">
                 <p id="userLoggedEmail"></p><br>
-                <button onclick="cerrarSesion()">Cerrar Sesion</button>
+                <button onclick="cerrarSesion()">Cerrar Sesión</button>
             </div>
         </div>
     </nav>
@@ -50,20 +57,20 @@
 
         <!-- Info de pago -->
         <section>
-            <h1>Informacion de pago</h1>
+            <h1>Información de pago</h1>
             <br>
             <div class="row">
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input type="text" id="cardNumber" class="input100">
-                        <span class="focus-input100" data-placeholder="Numero de tarjeta"></span>
+                        <span class="focus-input100" data-placeholder="Número de tarjeta"></span>
                     </div>
 
                 </div>
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="expDate">
-                        <span class="focus-input100" data-placeholder="Fecha de expiracion"></span>
+                        <span class="focus-input100" data-placeholder="Fecha de expiración"></span>
                     </div>
                 </div>
             </div>
@@ -75,62 +82,44 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="wrap-input100 validate-input">
-                        <input type="text" id="amount" class="input100">
-                        <span class="focus-input100" data-placeholder="Cantidad"></span>
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="wrap-input100 validate-input">
+                                <input type="text" id="amount" class="input100">
+                                <span class="focus-input100" data-placeholder="Monto"></span>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="isTrialPeriod">
+                                <label class="form-check-label" for="copyDataCbox">
+                                    Prueba gratis de 7 dias
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Info de orden -->
-        <section>
-            <h1>Informacion de Orden</h1>
-            <br>
-            <div class="wrap-input100 validate-input">
-                <input type="text" id="invoice" class="input100">
-                <span class="focus-input100" data-placeholder="Factura #"></span>
-            </div>
-
-            <div class="wrap-input100 validate-input">
-                <input class="input100" type="text" id="descOrder">
-                <span class="focus-input100" data-placeholder="Descripcion"></span>
             </div>
         </section>
 
         <!-- Info de cobros -->
         <section>
-            <h1>Informacion de cobro:</h1>
+            <h1>Información de cobro:</h1>
             <br>
             <div class="row">
-                <div class="col-6">
-                    <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" id="customerID">
-                        <span class="focus-input100" data-placeholder="ID Cliente"></span>
-                    </div>
-                </div>
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="firstName">
                         <span class="focus-input100" data-placeholder="Nombre"></span>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="lastName">
                         <span class="focus-input100" data-placeholder="Apellido"></span>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" id="company">
-                        <span class="focus-input100" data-placeholder="Empresa"></span>
-                    </div>
-                </div>
             </div>
-
             <div class="row">
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
@@ -162,37 +151,22 @@
             <div class="row">
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" id="country">
-                        <span class="focus-input100" data-placeholder="Pais"></span>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="phone">
-                        <span class="focus-input100" data-placeholder="Telefono"></span>
+                        <span class="focus-input100" data-placeholder="Télefono"></span>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="email">
                         <span class="focus-input100" data-placeholder="Correo"></span>
                     </div>
                 </div>
-                <!-- <div class="col-6">
-                    <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" id="fax">
-                        <span class="focus-input100" data-placeholder="Fax"></span>
-                    </div>
-                </div> -->
-
             </div>
         </section>
 
         <!-- Info de envio -->
         <section>
-            <h1>Informacion de envio:</h1>
+            <h1>Información de envio:</h1>
             <br>
             <div class="row">
                 <div class="col-6">
@@ -200,7 +174,7 @@
                         <input class="form-check-input" type="checkbox" value="" id="copyDataCbox"
                             onchange="checkboxChanged()">
                         <label class="form-check-label" for="copyDataCbox">
-                            Usar la misma informacion de cobros
+                            Usar la misma información de cobros
                         </label>
                     </div>
                 </div>
@@ -220,50 +194,37 @@
                 </div>
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" id="shipCompany">
-                        <span class="focus-input100" data-placeholder="Empresa"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="shipAddress">
                         <span class="focus-input100" data-placeholder="Dirección"></span>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="shipCity">
                         <span class="focus-input100" data-placeholder="Ciudad"></span>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="shipState">
                         <span class="focus-input100" data-placeholder="Estado/Provincia"></span>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="shipZipCode">
                         <span class="focus-input100" data-placeholder="ZipCode"></span>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" id="shipCountry">
-                        <span class="focus-input100" data-placeholder="Pais"></span>
-                    </div>
+
                 </div>
                 <div class="col-6">
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" id="shipPhone">
-                        <span class="focus-input100" data-placeholder="Telefono"></span>
+                        <span class="focus-input100" data-placeholder="Télefono"></span>
                     </div>
                 </div>
             </div>
@@ -274,14 +235,9 @@
                         <span class="focus-input100" data-placeholder="Correo"></span>
                     </div>
                 </div>
-                <!-- <div class="col-6">
-                    <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" id="shipFax">
-                        <span class="focus-input100" data-placeholder="Fax"></span>
-                    </div>
-                </div> -->
             </div>
         </section>
+
         <br>
         <button id="btnProcessPayment" class="btn btn-warning">PROCESAR ORDEN</button>
         <br><br><br>
@@ -290,128 +246,150 @@
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
+    <script src="services/savePaymentService.js"></script>
     <script>
 
-        function processPayment(params) {
+        function callProcessPayment() {
             const userID = getCookieValue('userLogged')
             const cardNumber = document.getElementById('cardNumber').value
             const cvc = document.getElementById('cvc').value
             const expDate = document.getElementById('expDate').value
             const amount = document.getElementById('amount').value
-            const invoice = document.getElementById('invoice').value
-            const descOrder = document.getElementById('descOrder').value
 
-            const customerID = document.getElementById('customerID').value
+            const invoice = "000001"
+            const descOrder = "Creditmon Mensual"
+
+            const customerID = "000001"
             const firstName = document.getElementById('firstName').value
             const lastName = document.getElementById('lastName').value
-            const company = document.getElementById('company').value
+            const company = "Red5G"
             const address = document.getElementById('address').value
             const city = document.getElementById('city').value
             const state = document.getElementById('state').value
             const zipCode = document.getElementById('zipCode').value
-            const country = document.getElementById('country').value
+            const country = "USA"
             const phone = document.getElementById('phone').value
-            // const fax = document.getElementById('fax').value
             const email = document.getElementById('email').value
 
-            // const shipCustomerID = document.getElementById('shipCustomerID').value
             const shipFirstName = document.getElementById('shipFirstName').value
             const shipLastName = document.getElementById('shipLastName').value
-            const shipCompany = document.getElementById('shipCompany').value
+            const shipCompany = "Red5G"
             const shipAddress = document.getElementById('shipAddress').value
             const shipCity = document.getElementById('shipCity').value
             const shipState = document.getElementById('shipState').value
             const shipZipCode = document.getElementById('shipZipCode').value
-            const shipCountry = document.getElementById('shipCountry').value
+            const shipCountry = "USA"
             const shipPhone = document.getElementById('shipPhone').value
-            // const shipFax = document.getElementById('shipFax').value
             const shipEmail = document.getElementById('shipEmail').value
 
-
-            const data = {
-                user_id: userID,
-                card: {
-                    number: cardNumber,
-                    expiration: expDate,
-                    cvc: cvc,
-                    type: ""
-                },
-                invoice: {
-                    number: invoice,
-                    description: descOrder,
-                    amount: amount,
-                },
-                billing: {
-                    first_name: firstName,
-                    last_name: lastName,
-                    company: company,
-                    address: address,
-                    city: city,
-                    state: state,
-                    zip_code: zipCode,
-                    country: country,
-                    phone_number: phone,
-                    // fax: "",
-                    email: email
-                },
-                shipping: {
-                    first_name: shipFirstName,
-                    last_name: shipLastName,
-                    company: shipCompany,
-                    address: shipAddress,
-                    city: shipCity,
-                    state: shipState,
-                    zip_code: shipZipCode,
-                    country: shipCountry
-                }
-            }
-
-
-
-            // Make a GET request using Axios
-            axios.post('http://localhost:3000/api/v1/payment', data)
-                .then(function (response) {
-                    // Handle the successful response
-                    console.log(response)
-                    alert(`Pago procesado con exito: ${response.data.message}`)
-                })
-                .catch(function (error) {
-                    // Handle errors
-                    alert(`Oooops, Algo salio mal: ${error.response.data.message}`);
-                });
+            processPayment({
+                userID,
+                cardNumber,
+                cvc,
+                expDate,
+                amount,
+                invoice,
+                descOrder,
+                customerID,
+                firstName,
+                lastName,
+                company,
+                address,
+                city,
+                state,
+                zipCode,
+                country,
+                phone,
+                email,
+                shipFirstName,
+                shipLastName,
+                shipCompany,
+                shipAddress,
+                shipCity,
+                shipState,
+                shipZipCode,
+                shipCountry,
+                shipPhone,
+                shipEmail
+            })
         }
 
-        function getCookieValue(cookieName) {
-            const cookies = document.cookie.split(';');
+        function callProcessPaymentWithTrialPeriod() {
 
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.startsWith(`${cookieName}=`)) {
-                    return cookie.substring(cookieName.length + 1); // +1 to skip the '=' character
-                }
-            }
+            const userID = getCookieValue('userLogged')
+            const cardNumber = document.getElementById('cardNumber').value
+            const cvc = document.getElementById('cvc').value
+            const expDate = document.getElementById('expDate').value
+            const amount = document.getElementById('amount').value
 
-            return null; // Cookie not found
+            const invoice = "000001"
+            const descOrder = "Creditmon Mensual"
+
+            const customerID = "000001"
+            const firstName = document.getElementById('firstName').value
+            const lastName = document.getElementById('lastName').value
+            const company = "Red5G"
+            const address = document.getElementById('address').value
+            const city = document.getElementById('city').value
+            const state = document.getElementById('state').value
+            const zipCode = document.getElementById('zipCode').value
+            const country = "USA"
+            const phone = document.getElementById('phone').value
+            const email = document.getElementById('email').value
+
+            const shipFirstName = document.getElementById('shipFirstName').value
+            const shipLastName = document.getElementById('shipLastName').value
+            const shipCompany = "Red5G"
+            const shipAddress = document.getElementById('shipAddress').value
+            const shipCity = document.getElementById('shipCity').value
+            const shipState = document.getElementById('shipState').value
+            const shipZipCode = document.getElementById('shipZipCode').value
+            const shipCountry = "USA"
+            const shipPhone = document.getElementById('shipPhone').value
+            const shipEmail = document.getElementById('shipEmail').value
+            processPaymentWithTrialPeriod({
+                userID,
+                cardNumber,
+                cvc,
+                expDate,
+                amount,
+                invoice,
+                descOrder,
+                customerID,
+                firstName,
+                lastName,
+                company,
+                address,
+                city,
+                state,
+                zipCode,
+                country,
+                phone,
+                email,
+                shipFirstName,
+                shipLastName,
+                shipCompany,
+                shipAddress,
+                shipCity,
+                shipState,
+                shipZipCode,
+                shipCountry,
+                shipPhone,
+                shipEmail
+            })
         }
 
-        function clearCookies() {
-            var cookies = document.cookie.split(";");
 
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i];
-                var eqPos = cookie.indexOf("=");
-                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-            }
-        }
-
-        function cerrarSesion() {
-            clearCookies()
-            window.location.href = 'index.html'
-        }
 
         let button = document.getElementById('btnProcessPayment');
-        button.addEventListener('click', processPayment);
+        button.addEventListener('click', () => {
+            let activatedTrial = document.getElementById('isTrialPeriod')
+            if (activatedTrial.checked) {
+                callProcessPaymentWithTrialPeriod()
+            } else {
+                callProcessPayment()
+            }
+        });
     </script>
 
     <script>
@@ -421,52 +399,6 @@
             emailUserLogged.innerHTML = getCookieValue('userLoggedEmail');
         });
 
-
-        function copyData() {
-            const elementsToCopy = [
-                'firstName', 'lastName', 'company',
-                'address', 'city','state',
-                'zipCode', 'country', 'phone',
-                'email'
-            ]
-            const elementsToPaste = [
-                'shipFirstName', 'shipLastName', 'shipCompany',
-                'shipAddress', 'shipCity','shipState',
-                'shipZipCode', 'shipCountry', 'shipPhone',
-                'shipEmail'
-            ]
-            for (let i = 0; i < elementsToCopy.length; i++) {
-
-                let d = document.getElementById(`${elementsToCopy[i]}`).value;
-                let b = document.getElementById(`${elementsToPaste[i]}`)
-                b.value = d
-
-            }
-        }
-        function deleteData() {
-            const elementsToPaste = [
-                'shipFirstName', 'shipLastName', 'shipCompany',
-                'shipAddress', 'shipCity','shipState',
-                'shipZipCode', 'shipCountry', 'shipPhone',
-                'shipEmail', 'shipFax'
-            ]           
-            for (let i = 0; i < elementsToPaste.length; i++) {
-                let b = document.getElementById(`${elementsToPaste[i]}`)
-                b.value = ""
-            }
-        }
-
-        function checkboxChanged() {
-            let checkbox = document.getElementById("copyDataCbox");
-            // This function will be called whenever the checkbox changes its state
-            if (checkbox.checked) {
-                copyData()
-                $(".main-container input").trigger("blur");
-            } else {
-                deleteData()
-                $(".main-container input").trigger("blur");
-            }
-        }
     </script>
 </body>
 

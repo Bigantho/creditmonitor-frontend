@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+
+
+    <!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="./images//icons/creditmonitorIcon.png" type="png">
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./">Cobros Creditmonitor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <!-- <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a> -->
+                    <a  class="nav-link">
+                        <button onclick="openView('payments.html')"> Cobros realizados</button>
+                    </a>
+                    <a class="nav-link">
+                        <button onclick="openView('savePayment.html')"> Realizar cobro</button>
+                    </a>
+
+                </div>
+            </div>
+            <div class="d-flex row">
+                <p id="userLoggedEmail"></p><br>
+                <button onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </nav>
+    <div class="main-container">
+        <table class="table table-striped align " id="tblPayments">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">#</th>
+                    <th scope="col" class="text-center">Trx ID</th>
+                    <th scope="col" class="text-center">Cliente</th>
+                    <th scope="col" class="text-center">Monto</th>
+                    <th scope="col" class="text-center">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    <script>
+        function getCookieValue(cookieName) {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(`${cookieName}=`)) {
+                    return cookie.substring(cookieName.length + 1); // +1 to skip the '=' character
+                }
+            }
+            return null; // Cookie not found
+        }
+
+        function openView(view){
+            alert   
+            window.location.href =  view
+        }
+
+        function cerrarSesion() {
+            clearCookies()
+            window.location.href = 'index.html'
+        }
+
+        function getData(){
+            
+             axios.get('http://localhost:3000/api/v1/user/1/payments')
+                .then(function (response) {
+                   setData(response.data)
+                })
+                .catch(function (error) {
+                    // Handle errors 
+                    console.log(error)
+                    alert(`Error: ${error.response.data.mainError}. \nMensaje: ${error.response.data.errors[0].error} \nCampo: ${error.response.data.errors[0].field}   `);
+                });
+        }
+
+        function setData(payments){
+            const table = $('#tblPayments tbody')
+            payments.forEach((x,i) => {
+                let row = $('<tr><td class="text-center">' + (i+1) + '</td><td class="text-center">'+ x.trx_id+'</td><td class="text-center">'+x.client_name+'</td><td class="text-center">'+x.amount+'</td><td class="text-center">'+x.date_created+'</td></tr>')
+                table.append(row)
+            });
+        }
+
+        function clearCookies() {
+            let cookies = document.cookie.split(";");
+
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i];
+                let eqPos = cookie.indexOf("=");
+                let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            }
+        }
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let emailUserLogged = document.getElementById('userLoggedEmail');
+            emailUserLogged.innerHTML = getCookieValue('userLoggedEmail');
+            getData()
+        });
+
+
+
+    </script>
+</body>
+
+</html>
