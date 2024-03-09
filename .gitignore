@@ -1,0 +1,5 @@
+## IGNORE ENV FILE
+.env
+
+## IGNORE CONSTANTS FILE
+constants.js
