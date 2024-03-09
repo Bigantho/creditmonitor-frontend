@@ -1,3 +1,4 @@
+document.write('<script type="text/javascript" src="../constants.js"></script>');
 
 
 function copyData() {
