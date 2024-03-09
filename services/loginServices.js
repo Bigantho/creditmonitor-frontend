@@ -1,4 +1,5 @@
-// require('dotenv').config()
+
+document.write('<script type="text/javascript" src="../constants.js"></script>');
 
 function login(params) {
     const headers = {
@@ -6,7 +7,7 @@ function login(params) {
         "Accept": "application/json"
     }
     // Make a GET request using Axios
-    axios.post(`${process.env.URL_API}v1/login`, { user: params.user, password: params.password }, { headers })
+    axios.post(`${URL_API}/v1/login`, { user: params.user, password: params.password }, { headers })
         .then(function (response) {
             // Handle the successful response
             document.cookie = `userLogged=${response.data.user.id}`;
