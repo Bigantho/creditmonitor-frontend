@@ -1,7 +1,9 @@
 
 document.write('<script type="text/javascript" src="../constants.js"></script>');
+document.write('<script type="text/javascript" src="../js/loading.js"></script>');
 
 function login(params) {
+    showLoader()
     const headers = {
         "Content-Type": "application/json",
         "Accept": "application/json"
@@ -16,6 +18,8 @@ function login(params) {
         })
         .catch(function (error) {
             // Handle errors
+            hideLoader()
             alert("Información no valida.")
+
         });
 }

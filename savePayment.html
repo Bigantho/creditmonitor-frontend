@@ -19,6 +19,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="css/loading.css">
     <!--===============================================================================================-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -242,7 +243,15 @@
         <button id="btnProcessPayment" class="btn btn-warning">PROCESAR ORDEN</button>
         <br><br><br>
     </div>
+
+    <!-- [ LOADER ] -->
+    <div class="overlay" id="overlay">
+        <div class="loader"></div>
+    </div>
+    <!-- [ / LOADER ] -->
+
     <!--===============================================================================================-->
+
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
@@ -282,7 +291,10 @@
             const shipPhone = document.getElementById('shipPhone').value
             const shipEmail = document.getElementById('shipEmail').value
 
-            processPayment({
+
+            let activatedTrial = document.getElementById('isTrialPeriod')
+            let sameDate = document.getElementById('copyDataCbox')
+            const res = processPayment({
                 userID,
                 cardNumber,
                 cvc,
@@ -312,6 +324,10 @@
                 shipPhone,
                 shipEmail
             })
+            if (res) {
+                activatedTrial.checked = false
+                sameDate.checked = false
+            }
         }
 
         function callProcessPaymentWithTrialPeriod() {
@@ -347,7 +363,9 @@
             const shipCountry = "USA"
             const shipPhone = document.getElementById('shipPhone').value
             const shipEmail = document.getElementById('shipEmail').value
-            processPaymentWithTrialPeriod({
+             let activatedTrial = document.getElementById('isTrialPeriod')
+            let sameDate = document.getElementById('copyDataCbox')
+            const res = processPaymentWithTrialPeriod({
                 userID,
                 cardNumber,
                 cvc,
@@ -377,6 +395,11 @@
                 shipPhone,
                 shipEmail
             })
+
+             if (res) {
+                activatedTrial.checked = false
+                sameDate.checked = false
+            }
         }
 
 

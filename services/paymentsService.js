@@ -1,4 +1,5 @@
 document.write('<script type="text/javascript" src="../constants.js"></script>');
+document.write('<script type="text/javascript" src="../js/loading.js"></script>');
 
 
 function getCookieValue(cookieName) {
@@ -12,9 +13,9 @@ function getCookieValue(cookieName) {
     return null; // Cookie not found
 }
 
-function openView(view){
-    alert   
-    window.location.href =  view
+function openView(view) {
+    alert
+    window.location.href = view
 }
 
 function cerrarSesion() {
@@ -22,23 +23,26 @@ function cerrarSesion() {
     window.location.href = 'index.html'
 }
 
-function getData(){
-    
-     axios.get(`${URL_API}/v1/user/1/payments`)
+function getData() {
+    showLoader()
+    axios.get(`${URL_API}/v1/user/1/payments`)
         .then(function (response) {
-           setData(response.data)
+            setData(response.data)
+            hideLoader()
         })
         .catch(function (error) {
             // Handle errors 
             console.log(error)
+            hideLoader()
+
             alert(`Error: ${error.response.data.mainError}. \nMensaje: ${error.response.data.errors[0].error} \nCampo: ${error.response.data.errors[0].field}   `);
         });
 }
 
-function setData(payments){
+function setData(payments) {
     const table = $('#tblPayments tbody')
-    payments.forEach((x,i) => {
-        let row = $('<tr><td class="text-center">' + (i+1) + '</td><td class="text-center">'+ x.trx_id+'</td><td class="text-center">'+x.client_name+'</td><td class="text-center">'+x.amount+'</td><td class="text-center">'+x.date_created+'</td></tr>')
+    payments.forEach((x, i) => {
+        let row = $('<tr><td class="text-center">' + (i + 1) + '</td><td class="text-center">' + x.trx_id + '</td><td class="text-center">' + x.client_name + '</td><td class="text-center">' + x.amount + '</td><td class="text-center">' + x.date_created + '</td></tr>')
         table.append(row)
     });
 }

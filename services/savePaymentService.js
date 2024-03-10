@@ -1,4 +1,5 @@
 document.write('<script type="text/javascript" src="../constants.js"></script>');
+document.write('<script type="text/javascript" src="../js/loading.js"></script>');
 
 
 function copyData() {
@@ -85,7 +86,8 @@ function openView(view) {
     window.location.href = view
 }
 
-function processPayment(params) {
+async function processPayment(params) {
+    showLoader();
     const data = {
         user_id: params.userID,
         card: {
@@ -123,34 +125,40 @@ function processPayment(params) {
             country: params.shipCountry
         }
     }
+   
 
     // Make a GET request using Axios
-    axios.post(`${URL_API}/v1/payment`, data)
+  return await  axios.post(`${URL_API}/v1/payment`, data)
         .then(function (response) {
             // Handle the successful response
+            hideLoader()
             console.log(response)
             alert(`Pago procesado con exito: ${response.data.message}`)
             clearInput()
+           
+            return true
         })
         .catch(function (error) {
             // Handle errors 
             // console.log(error)
-
+            hideLoader()
             if (error.response.data.errors && error.response.data.errors.length > 0) {
                 alert(`Error: ${error.response.data.mainError}. \nMensaje: ${error.response.data.errors[0].error} \nCampo: ${error.response.data.errors[0].field}   `);
             } else {
-                alert(`Error: ${error.response.data.mainError} \nError Code: ${error.response.data.errorCode}` )
+                alert(`Error: ${error.response.data.mainError} \nError Code: ${error.response.data.errorCode}`)
             }
+
+            return false
         });
 }
 
-function processPaymentWithTrialPeriod(params) {
-
+async function processPaymentWithTrialPeriod(params) {
+    showLoader()
     const data = {
         user_id: params.userID,
         card: {
             number: params.cardNumber,
-            expiration:params.expDate,
+            expiration: params.expDate,
             cvc: params.cvc,
             type: ""
         },
@@ -183,22 +191,26 @@ function processPaymentWithTrialPeriod(params) {
             country: params.shipCountry
         }
     }
-
+   
     // Make a GET request using Axios
-    axios.post(`${URL_API}/v1/paymentWithTrial`, data)
+   return await axios.post(`${URL_API}/v1/paymentWithTrial`, data)
         .then(function (response) {
             // Handle the successful response
-            console.log(response)
+            hideLoader()
             alert(`Pago procesado con exito: ${response.data.message}`)
             clearInput()
+           return true
         })
         .catch(function (error) {
             // Handle errors 
+            hideLoader()
             console.log(error)
             if (error.response.data.errors && error.response.data.errors.length > 0) {
                 alert(`Error: ${error.response.data.mainError}. \nMensaje: ${error.response.data.errors[0].error} \nCampo: ${error.response.data.errors[0].field}   `);
             } else {
-                alert(`Error: ${error.response.data.mainError} \nError Code: ${error.response.data.errorCode}` )
+                alert(`Error: ${error.response.data.mainError} \nError Code: ${error.response.data.errorCode}`)
             }
+            
+            return false
         });
 }
