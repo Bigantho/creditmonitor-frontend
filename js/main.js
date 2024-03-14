@@ -21,7 +21,7 @@
     [ Validate ]*/
     var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit', function () {
+    $('#btnLogin').on('click', function () {
         var check = true;
 
         for (var i = 0; i < input.length; i++) {
@@ -34,16 +34,70 @@
         return check;
     });
 
+    let inputPayment = $('.main-container .input100')
+    $('#btnProcessPayment').on('click', function () {
+        var check = true;
+        for (var i = 0; i < inputPayment.length; i++) {
+            if (validate(inputPayment[i]) == false) {
+                showValidate(inputPayment[i]);
+                check = false;
+            }
+        }
 
-    $('.validate-form .input100').each(function () {
+        // return check;
+        if (check) {
+            sendPayment(true)
+        } else {
+            alert("Debes completar todos los campos correctamente")
+        }
+    });
+    function sendPayment(val){
+        console.log("Fuck va", val);
+        if (val) {
+            let activatedTrial = document.getElementById('isTrialPeriod')
+                if (activatedTrial.checked) {
+                    callProcessPaymentWithTrialPeriod()
+                } else {
+                    callProcessPayment()
+                }
+        } else {
+            
+        }
+        
+    }
+    
+
+    $('.main-container .input100').each(function () {
         $(this).focus(function () {
             hideValidate(this);
         });
     });
 
     function validate(input) {
-        if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+
+        if ($(input).attr('name') == 'email' || $(input).attr('name') == 'shipEmail' ) {
             if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
+            }
+        } 
+        else if($(input).attr('name') == 'cardNumber'){
+            if ($(input).val().trim().match(/^.{16}$/) == null) {
+                return false;
+            }
+        }else if($(input).attr('name') == 'expDate'){
+            if ($(input).val().trim().match(/^\d{4}$/) == null) {
+                return false;
+            }
+        }else if($(input).attr('name') == 'cvc'){
+            if ($(input).val().trim().match(/^\d{3}$/) == null) {
+                return false;
+            }
+        }else if($(input).attr('name') == 'zipCode' || $(input).attr('name') == 'shipZipCode'){
+            if ($(input).val().trim().match(/^\d{5}$/) == null) {
+                return false;
+            }
+        }else if($(input).attr('name') == 'state' || $(input).attr('name') == 'shipState'){
+            if ($(input).val().trim().match(/^[A-Z]{2}$/) == null) {
                 return false;
             }
         }
@@ -65,4 +119,6 @@
 
         $(thisAlert).removeClass('alert-validate');
     }
+
+
 })(jQuery);
