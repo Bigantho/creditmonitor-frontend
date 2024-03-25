@@ -23,9 +23,9 @@ function cerrarSesion() {
     window.location.href = 'index.html'
 }
 
-function getData() {
+function getData(userID) {
     showLoader()
-    axios.get(`${URL_API}/v1/user/1/payments`)
+    axios.get(`${URL_API}/v1/user/${userID}/payments`)
         .then(function (response) {
             setData(response.data)
             hideLoader()

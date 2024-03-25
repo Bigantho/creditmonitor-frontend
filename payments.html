@@ -85,7 +85,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             let emailUserLogged = document.getElementById('userLoggedEmail');
             emailUserLogged.innerHTML = getCookieValue('userLoggedEmail');
-            getData()
+            let idUserLogged = getCookieValue('userLogged')
+            getData(idUserLogged)
         });
 
 
