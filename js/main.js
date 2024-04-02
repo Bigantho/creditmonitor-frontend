@@ -51,8 +51,36 @@
             alert("Debes completar todos los campos correctamente")
         }
     });
+
+
+
+    // ====================================================================
+    // 
+    //  ************** CAPTURA EL EVENTO PARA CUANDO SE QUIERE  *************
+    //  **************           SUSCRIBIR A CREDITMON          *************
+    // 
+    // ====================================================================
+    $('#btnProcessSubscription').on('click', function(){
+        let check = true;
+        for (var i = 0; i < inputPayment.length; i++) {
+            if (validate(inputPayment[i]) == false) {
+                showValidate(inputPayment[i]);
+                check = false;
+            }
+        }
+        let amountToBill = document.getElementById("amount").value
+        if (check) {
+            if (amountToBill == "0.01") {
+                sendCheckPayment()
+            } else {
+                sendPayment(true)
+            }
+        } else {
+            alert("Debes completar todos los campos correctamente")
+        }
+    })
+
     function sendPayment(val){
-        console.log("Fuck va", val);
         if (val) {
             let activatedTrial = document.getElementById('isTrialPeriod')
                 if (activatedTrial.checked) {
@@ -60,13 +88,13 @@
                 } else {
                     callProcessPayment()
                 }
-        } else {
-            
         }
-        
+    }
+
+    function sendCheckPayment(){
+        callCheckPayment();
     }
     
-
     $('.main-container .input100').each(function () {
         $(this).focus(function () {
             hideValidate(this);
