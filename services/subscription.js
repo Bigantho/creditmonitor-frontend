@@ -282,6 +282,8 @@ async function processCheckPayment(params){
     // Make a GET request using Axios
   return await  axios.post(`${URL_API}/v1/paymentCheck`, data)
         .then(function (response) {
+
+            console.log("El reposponde", response);
             // Handle the successful response
             hideLoader()
             alert(`Pago de verificación realizado con exito: ${response.data.message}`)

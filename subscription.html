@@ -498,29 +498,30 @@
                 shipEmail
             }
 
-            const res = processCheckPayment(dataPaymentClient)
-            if (res) {
-                let activatedTrial = document.getElementById('isTrialPeriod')
-                let restSubcrip = ""
-                dataPaymentClient.amount = 19.99
-               
-                if (activatedTrial.checked) {
-                    restSubcrip = processPaymentWithTrialPeriod(dataPaymentClient)
-                    if (restSubcrip) {
-                        activatedTrial.checked = false
-                        sameDate.checked = false
-                    }
-                } else {
-                    restSubcrip = processPayment(dataPaymentClient)
-                    if (restSubcrip) {
-                        activatedTrial.checked = false
-                        sameDate.checked = false
+             Promise.resolve(processCheckPayment(dataPaymentClient)).then((res) => {
+                if (res) {
+                    let activatedTrial = document.getElementById('isTrialPeriod')
+                    let restSubcrip = ""
+                    dataPaymentClient.amount = 19.99
+
+                    if (activatedTrial.checked) {
+                        restSubcrip = processPaymentWithTrialPeriod(dataPaymentClient)
+                        if (restSubcrip) {
+                            activatedTrial.checked = false
+                            sameDate.checked = false
+                        }
+                    } else {
+                        restSubcrip = processPayment(dataPaymentClient)
+                        if (restSubcrip) {
+                            activatedTrial.checked = false
+                            sameDate.checked = false
+                        }
                     }
                 }
+            })
 
 
 
-            }
         }
 
     </script>
