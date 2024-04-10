@@ -21,7 +21,7 @@ function updatePriceLabel(opt) {
             break;
     }
     inputAmount.value = lblPrice
-    opt != 1 ? inputAmount.classList.add("has-val") :  inputAmount.classList.remove("has-val")
+    opt != 1 ? inputAmount.classList.add("has-val") : inputAmount.classList.remove("has-val")
 }
 
 
@@ -148,17 +148,17 @@ async function processPayment(params) {
             country: params.shipCountry
         }
     }
-   
+
 
     // Make a GET request using Axios
-  return await  axios.post(`${URL_API}/v1/payment`, data)
+    return await axios.post(`${URL_API}/v1/payment`, data)
         .then(function (response) {
             // Handle the successful response
             hideLoader()
             console.log(response)
             alert(`Pago procesado con exito: ${response.data.message}`)
             clearInput()
-           
+
             return true
         })
         .catch(function (error) {
@@ -214,15 +214,15 @@ async function processPaymentWithTrialPeriod(params) {
             country: params.shipCountry
         }
     }
-   
+
     // Make a GET request using Axios
-   return await axios.post(`${URL_API}/v1/paymentWithTrial`, data)
+    return await axios.post(`${URL_API}/v1/paymentWithTrial`, data)
         .then(function (response) {
             // Handle the successful response
             hideLoader()
             alert(`Pago procesado con exito: ${response.data.message}`)
             clearInput()
-           return true
+            return true
         })
         .catch(function (error) {
             // Handle errors 
@@ -233,12 +233,12 @@ async function processPaymentWithTrialPeriod(params) {
             } else {
                 alert(`Error: ${error.response.data.mainError} \nError Code: ${error.response.data.errorCode}`)
             }
-            
+
             return false
         });
 }
 
-async function processCheckPayment(params){
+async function processCheckPayment(params) {
     showLoader();
     const data = {
         user_id: params.userID,
@@ -277,18 +277,18 @@ async function processCheckPayment(params){
             country: params.shipCountry
         }
     }
-   
+
 
     // Make a GET request using Axios
-  return await  axios.post(`${URL_API}/v1/paymentCheck`, data)
+    return await axios.post(`${URL_API}/v1/paymentCheck`, data)
         .then(function (response) {
 
-            console.log("El reposponde", response);
+            // console.log("El reposponde", response);
             // Handle the successful response
             hideLoader()
             alert(`Pago de verificación realizado con exito: ${response.data.message}`)
             clearInput()
-           
+
             return true
         })
         .catch(function (error) {

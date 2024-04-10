@@ -25,7 +25,7 @@ function cerrarSesion() {
 
 function getData(userID) {
     showLoader()
-    axios.get(`${URL_API}/v1/user/${userID}/payments`)
+    axios.get(`${URL_API}/v1/payment/total`)
         .then(function (response) {
             setData(response.data)
             hideLoader()
@@ -42,7 +42,7 @@ function getData(userID) {
 function setData(payments) {
     const table = $('#tblPayments tbody')
     payments.forEach((x, i) => {
-        let row = $('<tr><td class="text-center">' + (i + 1) + '</td><td class="text-center">' + x.trx_id + '</td><td class="text-center">' + x.client_name + '</td><td class="text-center">'+x.phone_number+'</td><td class="text-center">' + x.amount + '</td><td class="text-center">' + x.date_created + '</td></tr>')
+        let row = $('<tr><td class="text-center">' + (i + 1) + '</td><td class="text-center">' + x.trx_id + '</td><td class="text-center">' + x.client_name + '</td><td class="text-center">'+x.phone_number+'</td><td class="text-center">' + x.amount + '</td><td class="text-center">' + x.date_created + '</td><td class="text-center">'+x.user_name_charged+'</td></tr>')
         table.append(row)
     });
 }
