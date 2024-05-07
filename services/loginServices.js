@@ -14,7 +14,7 @@ function login(params) {
             // Handle the successful response
             document.cookie = `userLogged=${response.data.user.id}`;
             document.cookie = `userLoggedEmail=${response.data.user.email}`;
-            window.location.href = 'savePayment.html'
+            window.location.href = 'payments.html'
         })
         .catch(function (error) {
             // Handle errors
