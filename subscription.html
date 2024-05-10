@@ -31,7 +31,8 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="background-color: #8ea8a8; padding: 15px; border-radius: 50px;">Cobros Creditmonitor</a>
+            <a class="navbar-brand" href="#"
+                style="background-color: #8ea8a8; padding: 15px; border-radius: 50px;">Cobros Creditmonitor</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,13 +46,18 @@
                         <button onclick="openView('savePayment.html')"> Realizar cobro</button>
                     </a> -->
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" id="submenuDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
-                           Creditmon
+                        <a class="nav-link dropdown-toggle" href="#" role="button" id="submenuDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
+                            Creditmon
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="submenuDropdown">
-                            <li><a class="dropdown-item" href="#"><button onclick="openView('subscription.html')"> Suscripción Nueva</button></a></li>
-                            <li><a class="dropdown-item" href="#"><button onclick="openView('subscriptionActiva.html')"> Suscripciones Activas</button></a></li>
-                            <li><a class="dropdown-item" href="#"> <button onclick="openView('subscriptionInactiva.html')"> Suscripciones Inactivas</button></a></li>
+                            <li><a class="dropdown-item" href="#"><button onclick="openView('subscription.html')">
+                                        Suscripción Nueva</button></a></li>
+                            <li><a class="dropdown-item" href="#"><button onclick="openView('subscriptionActiva.html')">
+                                        Suscripciones Activas</button></a></li>
+                            <li><a class="dropdown-item" href="#"> <button
+                                        onclick="openView('subscriptionInactiva.html')"> Suscripciones
+                                        Inactivas</button></a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,7 +70,15 @@
         </div>
     </nav>
     <div class="main-container">
-
+        <!-- NOTA DE PROCESOS -->
+        <section class="note-for-subscription">
+            <p><span>Nota: </span> El cobro de $0.01 es para corroborar que el número de tarjeta y dirección sean
+                correctos y así evitar que el cobro sea rechazado cuando se ejecute. Si el cobro de $0.01 es realizado con éxito, automáticamente va a suscribir al cliente en el
+                plan de $19.99 realizando el cobro al día siguiente o después de 7 días, según sea el caso.
+            </p>
+        </section>
+        <br>
+        <!-- \ NOTA DE PROCESOS -->
         <!-- Info de pago -->
         <section>
             <h1>Información de pago</h1>
@@ -501,7 +515,7 @@
                 shipEmail
             }
 
-             Promise.resolve(processCheckPayment(dataPaymentClient)).then((res) => {
+            Promise.resolve(processCheckPayment(dataPaymentClient)).then((res) => {
                 if (res) {
                     let activatedTrial = document.getElementById('isTrialPeriod')
                     let restSubcrip = ""

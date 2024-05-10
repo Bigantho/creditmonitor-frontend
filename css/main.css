@@ -500,3 +500,13 @@ iframe {
   text-align: center;
 }
 
+
+.note-for-subscription{
+  background-color: #d5cbcb8a;
+  padding: 2%;
+}
+
+.note-for-subscription span{
+  font-weight: 800;
+  font-size: 20px;
+}
