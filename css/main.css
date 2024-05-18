@@ -510,3 +510,14 @@ iframe {
   font-weight: 800;
   font-size: 20px;
 }
+
+.note-for-alert {
+  background-color: yellow;
+  font-size: 900px !important;
+}
+
+.note-for-alert p {
+  padding: 75px;
+  /* background-color: yellow; */
+  font-size: 5% !important;
+}

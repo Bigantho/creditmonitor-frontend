@@ -29,6 +29,10 @@ function getData(userID) {
         .then(function (response) {
             setData(response.data)
             hideLoader()
+            // Agregamos el datatable para los filtros
+            $('#tblPayments').DataTable({
+                deferRender: true,
+            });
         })
         .catch(function (error) {
             // Handle errors 
