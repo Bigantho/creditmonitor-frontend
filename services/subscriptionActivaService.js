@@ -42,7 +42,7 @@ function getData(userID) {
 function setData(payments) {
     const table = $('#tblPayments tbody')
     payments.forEach((x, i) => {
-        let row = $('<tr><td class="text-center">' + (i + 1) + '</td><td class="text-center">' + x.trx_id + '</td><td class="text-center">' + x.client + '</td><td class="text-center">'+x.time_created+'</td><td class="text-center">'+x.amount+'</td><td class="text-center">' + x.status_subscription + '</td></tr>')
+        let row = $('<tr><td class="text-center">' + (i + 1) + '</td><td class="text-center">' + x.trx_id + '</td><td class="text-center">' + x.client + '</td><td class="text-center">'+x.time_created+'</td><td class="text-center">'+x.amount+'</td><td class="text-center"><button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-eye-fill"></i> </button></td></tr>')
         table.append(row)
     });
 }

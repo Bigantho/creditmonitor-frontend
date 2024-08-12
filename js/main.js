@@ -128,6 +128,10 @@
             if ($(input).val().trim().match(/^[A-Z]{2}$/) == null) {
                 return false;
             }
+        }else if($(input).attr('name') == 'phone' || $(input).attr('name') == 'shipPhone'){
+            if ($(input).val().trim().match(/^\d{10}$/) == null) {
+                return false;
+            }
         }
         else {
             if ($(input).val().trim() == '') {
